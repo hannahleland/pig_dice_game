@@ -1,0 +1,333 @@
+body {
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #ffffff;
+color: #141414;
+}
+
+#header {
+display:grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr,2;
+grid-gap: 0px;
+grid-template-areas: 
+        "row1"
+        "row2";
+margin: 20px 20px 0px 20px;
+}
+
+#title{
+grid-area: row1;
+width: 100%;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0px;
+padding: 30px;
+background-color:#f8d4d8;
+}
+
+#rule_btn_box {
+grid-area: row2;
+display: grid;
+background-color: #ffebed;
+padding: 10px;
+display: none;
+}
+
+#rules_btn {
+margin-left: auto;
+margin-right: auto;
+}
+
+#rules{
+display: grid;
+grid-template-columns: 1fr, 3;
+grid-template-rows: 1fr, 2;
+grid-gap: 0px;
+grid-template-areas: 
+        "title"
+        "list";
+min-height: 200px;
+background-color: #ffebed;
+padding: 10px;
+margin:0px 20px 0px 20px;
+justify-content: center;
+}
+
+#rules_title {
+grid-area: title;
+text-align: center;
+}
+
+#rules_list {
+grid-area: list;
+}
+
+
+/************/
+/*** GAME ***/
+/************/
+
+#game {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1;
+grid-gap: 0px;
+grid-template-areas:
+        "player1 center player2";
+}
+
+
+#center {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 1fr;
+justify-items: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+#round {
+width: 100%;
+}
+
+#round_title {
+justify-self: center;
+text-align: center;
+padding: 20px;
+border: 3px solid #141414;
+background: #ffebed;
+margin-bottom: 0px;
+}
+ 
+#start {
+justify-self:center;
+align-self: flex-end;
+margin-bottom: 10px;
+}
+
+#turn {
+display: none;
+width: 100%;
+grid-template-columns: 1fr;
+grid-template-rows: 0.5fr 0.5fr 0.5fr 9fr;
+grid-template-areas:
+    "name"
+    "label"
+    "total"
+    "die";
+justify-items: center;
+padding:20px;
+background-color: #ffebed;
+}
+
+#turn.open {
+display: block;
+}
+
+#turn_name {
+grid-area: name;
+}
+
+#turn p {
+grid-area: label;
+width: 100%;
+text-align: center;
+margin:0;
+font-size: 16pt;
+}
+
+#total {
+grid-area: total;
+width: 100%;
+border:none;
+background-color: inherit;
+color:#141414;
+text-align: center;
+font-size: 16pt;
+}
+
+#die {
+display: none;
+}
+
+#die_img {
+grid-area: die;
+height: 180px;
+width: 180px;
+align-self: center;
+}
+
+
+
+
+
+/***********/
+/* PLAYERS */
+/***********/
+
+.playercard {
+display: grid;
+grid-template-columns: 1;
+grid-template-rows: 1fr 1fr;
+background-color: #f8d4d8;
+grid-template-areas: 
+    "info"
+    "turn";
+margin:20px;
+}
+
+#card1{
+grid-area: player1;
+}
+
+#card2 {
+grid-area: player2;
+}
+
+
+.player_info {
+grid-area: info;
+display: grid;
+grid-template-columns:1;
+grid-template-rows:3fr 1fr;
+grid-template-areas: 
+        "img"
+        "name";
+justify-content: center;
+margin: 10px;
+}
+
+#player1_info {
+
+}
+
+#player2_info {
+
+}
+
+.avatar_frame {
+grid-area: img;
+width:200px;
+height: 200px;
+padding:30px;
+border:6px solid #141414;
+border-radius: 50%;
+background-color: #ffffff;
+align-self: flex-end;
+}
+
+.avatar {
+width:100%;
+}
+
+.playerinput {
+grid-area: name;
+height: 50x;
+border: 2px solid #141414;
+border-radius: 4px;
+background-color: #ffebed;
+padding:5px;
+text-align: center;
+margin-top: 10px;
+}
+
+.playerinput:focus {
+outline-color: #ffebed;
+outline-width: thin;
+background-color: #ffffff;
+border-color: #141414;
+}
+
+.playername {
+width: 100%;
+grid-area: name;
+text-align: center;
+font-size: 22pt;
+margin-bottom: 0px;
+align-self: flex-end;
+}
+
+.playerturn {
+grid-area: turn;
+display: none;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 3fr;
+grid-template-areas: 
+    "score"
+    "btns";
+justify-items: center;
+}
+
+.scorebox {
+width: 200px;
+grid-area: score;
+display: grid;
+grid-template-columns: 100%;
+grid-template-rows: 1fr 1fr;
+grid-row-gap: 0px;
+margin-bottom: 10px;
+font-size: 16pt;
+}
+
+.scorelabel {
+text-align: center;
+margin-bottom: 0px;
+}
+
+.score {
+text-align: center;
+border: none;
+background-color: inherit;
+color: #141414;
+}
+
+#score1 {
+
+}
+
+#score2 {
+
+}
+
+
+#btns1 {
+
+}
+
+#btns2 {
+
+}
+
+.btn {
+background-color: #ffebed;
+color:#141414;
+font-weight:600;
+border:2px solid #141414;
+height: 50px;
+}
+
+.btns {
+width: 100px;
+height: 150px;
+grid-area: btns;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows:repeat(2,1fr);
+grid-row-gap: 0px;
+margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
