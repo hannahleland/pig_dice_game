@@ -1,6 +1,7 @@
 "use strict";
 var $ = function(id) { return document.getElementById(id); };
 var round;
+var winner;
 
 var getRandomNumber = function(max) {
 	var random;
@@ -34,6 +35,9 @@ var changePlayer = function() {
 var newGame = function() {
 	$("score1").value = "0";
 	$("score2").value = "0";
+    $("die_img").src = "images/empty.png";
+    $("total").value = 0;
+    $("turn_title").firstChild.nodeValue = "'s Turn";
 	
 	if ($("player1input").value == "" || $("player2input").value == "") { // validating
 		$("turn").removeAttribute("class"); // hides or keeps hidden the HTML section 'turn'
@@ -45,14 +49,18 @@ var newGame = function() {
         $("player1").innerHTML = $("player1input").value;
         $("player2").innerHTML = $("player2input").value;
 		$("turn").setAttribute("class", "open"); // dynamically adding a CSS class 
-		$("new_game").style.visibility = "hidden";
+		$("start").style.display = "none";
 		$("rules").style.display = 'none';
         $("rule_btn_box").style.display = 'grid';
 		$("rules_btn").style.visibility = 'visible';
         $("turn").style.display = "grid";
         $("turn1").style.display = "grid";
         $("turn2").style.display = "grid";
-        $("current").innerHTML = $("player2").innerHTML;
+//        if(winner == $("player2").innerHTML) {
+//            $("current").innerHTML = $("player1").innerHTML;
+//        } else {
+            $("current").innerHTML = $("player2").innerHTML;
+//        }
 		changePlayer();
 	};
 };
@@ -88,9 +96,14 @@ var holdTurn = function() {
 	}
 	
 	score.value = parseInt(score.value) + total; //parseInt important to keep it from concatenating and displaying incorrect score
-	if(score.value >= 100) {
-		alert($("current").innerHTML + " Wins!");
-		$("new_game").style.visibility = "visible";
+	if(score.value >= 5) {
+		$("turn_title").innerHTML = "Game Over!";
+		$("start").style.display = "grid";
+		$("new_game").value = "New Game";
+        $("point_title").innerHTML = "";
+        $("total").value = "";
+        $("die_img").src = "images/confetti.png";
+        winner = $("current").innerHTML;
 	} else {
 		changePlayer();
 	};

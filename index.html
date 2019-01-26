@@ -92,19 +92,22 @@
             <div id="round">
                 <h4 id="round_title">Enter player names to begin</h4>
             </div>
-
-        <!--     Game Start      -->
-            <div id="start">
-                <input type="button" id="new_game" class="btn" value="Start Game"><br>
-            </div>
             
-         <!--     Turn (Die & Turn Score)      -->
+            
+         <!--    Turn (Die & Turn Score)     -->
             <div id="turn">
                 <input type="text" id="die" disabled>
                 <img src="images/empty.png" id="die_img">
-                <h4><span id="current" ></span>'s Turn</h4>
-                <p>Points</p>
+                <h4 id="turn_title"><span id="current" >&nbsp;</span>'s Turn</h4>
+                <p id="point_title">Points</p>
                 <input type="text" id="total" disabled> 
+                
+            <!--     Game Start      -->
+            
+            </div>
+            
+            <div id="start">
+                <input type="button" id="new_game" class="btn" value="Start Game">
             </div>
             
         </div>

@@ -79,11 +79,16 @@ grid-template-areas:
         "player1 center player2";
 }
 
-
 #center {
+grid-area: center;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1fr 1fr;
+/*
+grid-template-rows: 1fr 6fr;
+grid-template-areas:
+    "top"
+    "bottom";
+*/
 justify-items: center;
 margin-top: 20px;
 margin-bottom: 20px;
@@ -101,26 +106,20 @@ border: 3px solid #141414;
 background: #ffebed;
 margin-bottom: 0px;
 }
- 
-#start {
-justify-self:center;
-align-self: flex-end;
-margin-bottom: 10px;
-}
 
 #turn {
 display: none;
 width: 100%;
 grid-template-columns: 1fr;
-grid-template-rows: 0.5fr 0.5fr 0.5fr 9fr;
+grid-template-rows: 0.5fr 0.5fr 0.5fr 9fr 3fr;
 grid-template-areas:
     "name"
     "label"
     "total"
     "die";
 justify-items: center;
-padding:20px;
 background-color: #ffebed;
+margin-top: 20px;
 }
 
 #turn.open {
@@ -160,6 +159,18 @@ width: 180px;
 align-self: center;
 }
 
+#start {
+display: grid;
+width: 100%;
+align-self: flex-end;
+background-color: #ffffff;
+margin-top: 20px;
+}
+
+#new_game {
+width:150px;
+justify-self:center;
+}
 
 
 
